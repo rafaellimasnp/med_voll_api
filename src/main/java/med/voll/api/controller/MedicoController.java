@@ -41,6 +41,8 @@ public class MedicoController {
     @DeleteMapping("/{id}")
     @Transactional
     public void excluir(@PathVariable long id){
-        repository.deleteById(id);
+
+        Medico medico = repository.getReferenceById(id);
+        medico.excluir();
     }
 }
